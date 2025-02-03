@@ -68,3 +68,112 @@ switch (true) { // <-- 비교 연산이 boolean 값을 반환하도록 설정
   default:
       grade = 'Invalid Score';
 }
+
+// Day 2: Conditional Statements: Switch -------------------------------------------
+function getLetter(s) {
+    let letter;
+    // Write your code here
+    switch(s[0]) {
+      case 'a' || 'e' || 'i' || 'o' || 'u':
+        letter = 'A';
+        break;
+      case 'b' || 'c' || 'd' || 'f' || 'g':
+        letter = 'B';
+        break;
+      case 'h' || 'j' || 'k' || 'l' || 'm':
+        letter = 'C';
+        break;
+     default:
+        letter = 'D';
+    }
+    return letter;
+}
+
+// Day 2: Loops -----------------------------------------------------------------------
+// loop 2times
+function vowelsAndConsonants(s) {
+    let vowels = [];
+    let nonVowels = [];
+    for(let ele of s) {
+      if('aeiou'.includes(ele)) {
+        vowels.push(ele);
+      } else {
+        nonVowels.push(ele);
+      }
+    }
+    for(let ele of [...vowels, ...nonVowels]) {
+      console.log(ele);
+    }
+}
+
+// BEST loop 1time
+function vowelsAndConsonants(s) {
+    const vowels = 'aeiou';
+    var consonants = '';
+    
+    for(var i = 0; i < s.length; i++) {
+       if (vowels.includes(s[i])) {
+           console.log(s[i]);
+       }
+       else {
+           consonants += s[i] + '\n';
+       }
+    }
+    
+    console.log(consonants.trim());
+}
+
+// Day 3: Arrays -------------------------------------------------------------------
+function getSecondLargest(nums) {
+    // Complete the function
+    const newNums = [...new Set(nums)].sort((a, b) => b - a);
+    return newNums[1];
+}
+
+// other O(N)
+function getSecondLargest(nums) {
+    let largest = nums[0];
+    let secondLargest = nums[0];
+    
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] > largest) {
+            secondLargest = largest;
+            largest = nums[i];
+            continue;
+        }
+        
+        if ((nums[i] > secondLargest) && (nums[i] < largest)) {
+            secondLargest = nums[i];
+        }
+    }
+    
+    return secondLargest;
+}
+
+// Day 3: Try, Catch, and Finally -----------------------------------
+// [Read](https://ko.javascript.info/try-catch)
+function reverseString(s) {
+  try {
+    const text = s.split('').reverse().join('');
+    console.log(text);
+  } catch(err) {
+    console.log(err.message);
+    console.log(s);
+  }
+}
+
+// Day 3: Throw ------------------------------------------------------
+/**
+- ✅ throw new error('text')
+- ❌ throw error('text')
+- ❌ throw 'text'
+**/
+function isPositive(a) {
+    if(a > 0) {
+      return 'YES';
+    } else if(a < 0) {
+      throw new Error('Negative Error');
+    } else {
+      throw new Error('Zero Error');
+    }
+}
