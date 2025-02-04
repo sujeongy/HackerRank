@@ -177,3 +177,45 @@ function isPositive(a) {
       throw new Error('Zero Error');
     }
 }
+
+// Day 4: Create a Rectangle Object --------------------------------------
+function Rectangle(a, b) {
+    return {
+      length: a,
+      width: b,
+      perimeter: 2*(a+b),
+      area: a*b,
+    }
+}
+
+// Day 4: Count Objects --------------------------------------------------
+/**
+* Task
+* It has one parameter: an array, a, of objects.
+* Each object in the array has two integer properties denoted by x and y.
+* The function must return a count of all such objects o in array a that satisfy o.x === o.y.
+**/
+function getCount(objects) {
+    let count = 0;
+    objects.forEach((ele) => {
+      if(ele.x === ele.y) {
+        count = count + 1;
+      }
+    })
+    return count;
+}
+
+// Day 4: Classes
+/*
+ * Implement a Polygon class with the following properties:
+ * 1. A constructor that takes an array of integer side lengths.
+ * 2. A 'perimeter' method that returns the sum of the Polygon's side lengths.
+ */
+class Polygon {
+  constructor(nums) {
+    this.nums = nums;
+  }
+  perimeter() {
+    return this.nums.reduce((a, b) => a + b, 0);
+  }
+}
