@@ -205,7 +205,7 @@ function getCount(objects) {
     return count;
 }
 
-// Day 4: Classes
+// Day 4: Classes ---------------------------------------------------
 /*
  * Implement a Polygon class with the following properties:
  * 1. A constructor that takes an array of integer side lengths.
@@ -218,4 +218,60 @@ class Polygon {
   perimeter() {
     return this.nums.reduce((a, b) => a + b, 0);
   }
+}
+
+// Day 5: Inheritance -------------------------------------------------
+// [READ](https://ko.javascript.info/class-inheritance)
+class Rectangle {
+    constructor(w, h) {
+        this.w = w;
+        this.h = h;
+    }
+}
+
+/*
+ *  Write code that adds an 'area' method to the Rectangle class' prototype
+ */
+Rectangle.prototype.area = function() {
+    return this.w*this.h;
+};
+/*
+ * Create a Square class that inherits from Rectangle
+ * and implement its class constructor
+ */ 
+class Square extends Rectangle {
+    constructor(s) {
+        super(s);
+        this.h = s;
+        this.w = s;
+    }
+};
+
+
+// Day 5: Arrow Functions -----------------------------------------------------
+/*
+ * Modify and return the array so that all even elements are doubled
+ *  and all odd elements are tripled.
+ * Parameter(s):
+ * nums: An array of numbers.
+ */
+function modifyArray(nums) {
+    return nums.map((ele) => {
+      if(ele % 2) {
+        return ele * 3;
+      } else {
+        return ele * 2;
+      }
+    })
+}
+
+// Day 6: JavaScript Dates -----------------------------------------------------
+// The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+function getDayName(dateString) {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let dayName;
+    const day = new Date(dateString);
+    const dayNum = day.getDay();
+    dayName = days[dayNum]
+    return dayName;
 }
