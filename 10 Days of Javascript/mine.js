@@ -265,6 +265,25 @@ function modifyArray(nums) {
     })
 }
 
+// Day 5: Template Literals --------------------------------------------------
+/*
+ * Determine the original side lengths and return an array:
+ * - The first element is the length of the shorter side
+ * - The second element is the length of the longer side
+ * 
+ * Parameter(s):
+ * literals: The tagged template literal's array of strings.
+ * expressions: The tagged template literal's array of expression values (i.e., [area, perimeter]).
+ */
+function sides(literals, ...expressions) {
+  const [area, perimeter] = expressions;
+  const commonVal = Math.sqrt((perimeter*perimeter) - 16 * area);
+  const val1 = (perimeter + commonVal)/4;
+  const val2 = (perimeter - commonVal)/4;
+  return [val1, val2].sort();
+}
+
+
 // Day 6: JavaScript Dates -----------------------------------------------------
 // The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 function getDayName(dateString) {
@@ -275,3 +294,6 @@ function getDayName(dateString) {
     dayName = days[dayNum]
     return dayName;
 }
+
+
+// Day 6: Bitwise Operators --------------------------------------------------
