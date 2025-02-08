@@ -297,3 +297,20 @@ function getDayName(dateString) {
 
 
 // Day 6: Bitwise Operators --------------------------------------------------
+
+
+
+// Day 7: Regular Expressions I
+// https://regexr.com/
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts and ends with the same vowel (i.e., {a, e, i, o, u} )
+     */
+    const re = new RegExp(/^([aeiou]).*\1$/i);
+    
+    /*
+     * Do not remove the return statement
+     */
+    return re;
+}
